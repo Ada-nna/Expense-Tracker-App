@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d21c3140b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      style="background-image: url('./images/widebuscg.jpg')"
+      class="relative w-full h-screen bg-no-repeat bg-center bg-cover"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60">
+        <div class="h-4/6 w-3/12 bg-black bg-opacity-20 mx-auto my-20">
+          <div class="p-10">
+            <h1 class="text-5xl font-bold text-center mb-10 text-[#ffffff]">
+              Welcome!
+            </h1>
+            <p class="font-medium text-center text-lg mb-5 text-cyan-100">
+              Enter your details to login
+            </p>
+
+            <form>
+              <div class="relative mb-5 mt-10">
+                <i class="fa-solid fa-user absolute top-4 left-3 text-base"></i>
+                <input
+                  id="loginName"
+                  type="text"
+                  placeholder="Username"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="loginError1"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+
+              <div class="relative mb-5">
+                <i class="fa-solid fa-lock absolute top-4 left-3 text-base"></i>
+                <img
+                  src="./images/hide.png"
+                  class="password-icon h-6 absolute right-3 top-4 cursor-pointer"
+                />
+                <input
+                  id="loginPass"
+                  type="password"
+                  placeholder="Password"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="loginError2"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+
+              <button
+                id="signBtn"
+                class="mt-10 w-full py-3 text-lg font-bold rounded-xl bg-[#61cfd2]"
+              >
+                <a href="#">Continue</a>
+              </button>
+
+              <p class="text-lg text-center font-bold mt-5">
+                <a href="#" style="color: white; text-shadow: 1px 1px 1px black"
+                  >Forgot Password?</a
+                >
+              </p>
+
+              <p
+                class="text-lg text-center text-cyan-100 font-medium mt-3 blur-md invert drop-shadow-xl md:filter-none"
+              >
+                Don't have an account?
+                <a
+                  href="./signup.html"
+                  class="font-bold"
+                  style="color: white; text-shadow: 1px 1px 1px black"
+                  >Sign Up</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./login.js"></script>
+  </body>
+</html>

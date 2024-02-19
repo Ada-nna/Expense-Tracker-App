@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d21c3140b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .hiddenn {
+        display: none;
+      }
+
+      .showw {
+        display: block;
+      }
+
+      thead th {
+        background-color: #f2f2f2;
+        padding: 7px 10px;
+        text-align: left;
+      }
+
+      tbody td {
+        padding: 7px 10px;
+        border-top: 1px solid #ddd;
+      }
+      #budgetExpenseChart {
+        width: 30rem;
+        min-height: 20rem;
+        margin-top: 40px;
+      }
+
+      /* FOR THE REFERRAL POPUP BOX */
+      .hide {
+        display: none;
+      }
+      .flex {
+        display: inline;
+      }
+      .hid {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F0F7FF]">
+    <div class="relative">
+      <div id="overallContainer" class="flex">
+        <!-- THE LEFT SIDE DIV STARTS HERE -->
+        <div id="leftSide" class="w-72 ml-5 mt-11" style="height: 53.125rem">
+          <img src="./images/logo.png" class="h-36 mx-auto" />
+
+          <div>
+            <div
+              class="flex items-center gap-5 text-black hover:text-[#1DBABF] delay-300 cursor-pointer mt-14 mx-16 mb-10"
+            >
+              <img src="./images/dashboard-interface.png" class="h-7" />
+              <p class="text-lg font-semibold font-roboto">
+                <a href="#">Dashboard</a>
+              </p>
+            </div>
+
+            <div
+              class="flex items-center gap-5 text-black hover:text-[#1DBABF] delay-300 cursor-pointer ml-16 mb-10"
+            >
+              <img src="./images/add-list.png" class="h-7" />
+              <p class="text-lg font-semibold font-roboto">
+                <a href="expenses.html">Create Expenses</a>
+              </p>
+            </div>
+
+            <div
+              class="flex items-center gap-5 text-black hover:text-[#1DBABF] delay-300 cursor-pointer ml-16 mb-10"
+            >
+              <img src="./images/money-exchange.png" class="h-7" />
+              <p class="text-lg font-semibold font-roboto">
+                <a href="transactions.html">Transactions</a>
+              </p>
+            </div>
+
+            <div
+              class="flex items-center gap-5 text-black hover:text-[#1DBABF] delay-300 cursor-pointer ml-16 mt-[26.875rem]"
+              id="logoutBtn"
+            >
+              <img src="./images/logout.png" class="h-7" />
+              <p class="text-lg font-semibold">
+                <a href="./index.html">Logout</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- THIS IS THE RIGHT SIDE 👇👇👇 -->
+        <section
+          id="rightSide"
+          class="border-solid mt-8 mr-10 px-12 bg-[#ffffff] h-[55rem] w-[95rem]"
+          style="
+            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.1),
+              3px 3px 3px 1px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <!-- THIS DIV CONTAINS A COMBINATION OF THE MIDDLE AND LAST SIDES -->
+          <div class="flex">
+            <!-- THE MIDDLE PART STARTS HERE -->
+            <div>
+              <h1 class="font-bold text-4xl mt-9 font-roboto">
+                Hey there, Cynthia!
+              </h1>
+              <p class="font-medium text-lg mt-1 font-roboto">
+                Enjoy your day. Good luck on your financial journey.
+              </p>
+
+              <!-- THE MIDDLE PART BORDER STARTS HERE.... -->
+              <div class="border-2" style="width: 67rem; height: 46rem">
+                <!-- THE BELOW DIV IS A COMBO OF CARD, ADD FUNDS & THE CHART -->
+                <div class="flex flex-row gap-10">
+                  <!-- THE BELOW DIV IS A COMBO OF CARD, ADD FUNDS & THE CHART -->
+                  <div>
+                    <!-- THE DEBIT CARD CODE STARTS HERE..... -->
+                    <div>
+                      <div
+                        class="mt-10 rounded-3xl px-12 py-8 relative"
+                        style="
+                          width: 34rem;
+                          height: 19rem;
+                          box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.1),
+                            3px 3px 1px 1px rgba(0, 0, 0, 0.1);
+                          background: url(./images/cyan.jpg) center center/cover
+                            no-repeat;
+                        "
+                      >
+                        <div class="flex justify-between items-center">
+                          <p
+                            id="balanceShowingOnCard"
+                            class="cursor-default text-xl font-semibold"
+                          >
+                            Available balance
+                          </p>
+                        </div>
+                        <p class="mt-10 text-6xl font-bold">
+                          ₦ <span id="availableBalance"></span>
+                        </p>
+
+                        <div class="flex justify-between items-center mt-12">
+                          <p
+                            class="text-black cursor-default text-xl font-semibold tracking-wider"
+                          >
+                            **** **** **** 8087
+                          </p>
+                          <img src="./images/mastercard.png" class="h-20" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ADD FUNDS DIV STARTS HERE -->
+                    <div class="relative">
+                      <button
+                        class="bg-[#1DBABF] text-black font-bold mt-4 p-3 text-lg"
+                        style="
+                          box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.1),
+                            1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+                        "
+                        id="addBtn"
+                      >
+                        Add Funds
+                      </button>
+                      <!-- FUNDS POPUP BOX DIV STARTS HERE -->
+                      <div
+                        id="popUp"
+                        class="h-36 w-96 bg-[#1DBABF] px-4 py-2 absolute top-5 left-40 hidden"
+                        style="
+                          box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1),
+                            1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+                        "
+                      >
+                        <div class="flex justify-between items-center">
+                          <p
+                            class="text-xl font-bold pb-2 text-black font-roboto cursor-default"
+                          >
+                            Add an amount:
+                          </p>
+
+                          <img
+                            id="close"
+                            src="./images/cross.png"
+                            class="h-8 mb-2 cursor-pointer"
+                          />
+                        </div>
+                        <form id="addToAvailableBalance">
+                          <input
+                            id="amountInput"
+                            type="number"
+                            name="num"
+                            class="bg-cyan-50 text-black outline-none w-full h-12 px-3 text-xl font-roboto font-semibold"
+                          />
+                          <button type="submit">
+                            <img
+                              src="./images/add.png"
+                              class="h-8 mt-2 cursor-pointer"
+                            />
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <canvas id="budgetExpenseChart"></canvas>
+                  </div>
+                </div>
+
+                <!-- RECENT TRANSACTION BEGINS HERE -->
+                <div>
+                  <h1
+                    class="font-bold text-2xl mt-9 mb-3 font-roboto -tracking-tighter cursor-default"
+                  >
+                    Recent Transactions
+                  </h1>
+
+                  <div class="container">
+                    <div
+                      class="expenseTable border border-[#ddd] rounded-lg overflow-hidden shadow-md"
+                    >
+                      <table class="transactionTable w-full border-collapse">
+                        <thead>
+                          <tr>
+                            <th>Decription</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Type</th>
+                          </tr>
+                        </thead>
+                        <tbody id="recentTransactionsList"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- THE THIRD SIDE FOR PROFILE PIC / SETTINGS BEGINS HERE -->
+            <div class="border-2 relative w-full">
+              <div
+                style="
+                  background: url(./images/profilepic.jpg) center center/cover
+                    no-repeat;
+                "
+                class="profilePic h-20 w-20 rounded-full float-right mt-9 cursor-pointer"
+              ></div>
+
+              <!-- PROFILE POPUP BOX STARTS HERE..... -->
+              <div
+                id="profileSettingsBox"
+                class="h-72 w-10/12 bg-[#F0F7FF] px-4 py-2 absolute top-[8rem] right-0"
+                style="
+                  box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1),
+                    1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <div>
+                  <p class="text-center text-base font-medium cursor-default">
+                    Account Status:
+                  </p>
+                  <h1
+                    class="text-center text-[#36b23a] font-bold text-3xl cursor-default"
+                    style="text-shadow: 1px 1px 1px"
+                  >
+                    Activated
+                  </h1>
+                </div>
+
+                <!-- ICONS HERE...... -->
+                <div class="mt-7">
+                  <div
+                    class="flex items-center gap-10 p-3 hover:bg-[#1DBABF] hover:delay-300 text-black cursor-pointer"
+                  >
+                    <img src="./images/setting.png" class="h-7" />
+                    <p class="text-lg font-semibold">
+                      <a href="settings.html">Settings</a>
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex items-center gap-10 p-3 text-black hover:bg-[#1DBABF] hover:delay-300 cursor-pointer"
+                  >
+                    <img src="./images/question.png" class="h-7" />
+                    <p class="text-lg font-semibold">
+                      <a href="accordion.html">FAQ</a>
+                    </p>
+                  </div>
+
+                  <div
+                    id="invite-friends"
+                    class="flex items-center gap-9 p-4 text-black hover:bg-[#1DBABF] hover:delay-300 cursor-pointer"
+                  >
+                    <img src="./images/referral.png" class="h-7" />
+                    <p class="text-lg font-semibold">Refer a friend</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="border-2 h-[24.5rem] mt-[28rem]">
+                <h1 class="text-3xl mb-5 font-roboto font-bold">Budget</h1>
+                <div class="h-[20rem] mx-auto">
+                  <canvas id="savings-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- REFERRAL POPUP BOX STARTS HERE..... -->
+      <div
+        id="referralPopupBox"
+        class="w-[35rem] mx-auto m-[20vh] bg-[#F0F7FF] absolute top-0 left-[40rem] hidden"
+        style="
+          box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1),
+            1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <h1
+          class="text-4xl text-black font-bold font-roboto text-center mb-[2rem] pt-3 tracking-wider"
+        >
+          Your Referral Link
+        </h1>
+        <p
+          class="text-lg w-[25rem] text-center mx-auto leading-5 font-bold mb-8 tracking-wider"
+        >
+          Real friends don't sit back and watch their friends dwell in bad
+          credit 😻
+        </p>
+        <div class="p-5 relative">
+          <button
+            type="button"
+            class="text-xl font-roboto font-semibold mb-3 bg-black text-white p-2"
+            id="generateReferralLink"
+          >
+            Generate Referral Link
+          </button>
+          <input
+            class="w-full h-12 border-2 outline-none pl-5 pr-12 text-lg"
+            type="text"
+            id="referralLink"
+          />
+          <img
+            src="./images/copy.png"
+            id="copy"
+            class="h-6 absolute top-[5.5rem] right-8 cursor-pointer"
+          />
+        </div>
+        <div class="pb-5">
+          <p
+            id="done-btn"
+            class="cursor-pointer flex text-center w-20 py-2 bg-black font-semibold text-white justify-center mx-auto"
+          >
+            Done
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="cardbalance.js"></script>
+    <script src="recentransac.js"></script>
+    <script src="settings.js"></script>
+    <script src="exbudgchart.js"></script>
+    <script src="savingschart.js" defer></script>
+    <script type="module" src="./logout.js"></script>
+    <script src="referralink.js"></script>
+  </body>
+</html>

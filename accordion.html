@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequently Asked Questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    h2::after {
+      content: "+";
+      position: absolute;
+      right: 30px;
+      font-weight: 900;
+    }
+
+    .box p {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    .container .box.active p {
+      max-height: 100px;
+    }
+
+    .container .box.active h2 {
+      font-size: 18px;
+      transition: 0.5px;
+    }
+
+    .container .box.active h2::after {
+      content: "-";
+      font-weight: 900;
+      transition: 0.5s;
+    }
+  </style>
+  <body>
+    <div
+      style="background-image: url('./images/widebuscg.jpg')"
+      class="relative w-full h-screen bg-no-repeat bg-center bg-cover"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60">
+        <div
+          class="container h-3/6 w-[43.75rem] bg-black bg-opacity-20 mx-auto my-20"
+        >
+          <h1
+            class="text-center pt-5 pb-3 font-black text-3xl font-roboto text-white"
+          >
+            Frequently Asked Questions
+          </h1>
+
+          <div class="QandA mt-[3.125rem] pb-[3.125rem]">
+            <div class="box">
+              <h2
+                class="relative m-5 text-[#ffffff] font-bold bg-black p-3 cursor-pointer"
+              >
+                How can I efficiently save my money?
+              </h2>
+              <p
+                class="m-5 text-xl text-white w-full overflow-hidden duration-500 ease-in-out"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                doloribus molestiae officia quibusdam repellendus iure rem eaque
+                rerum pariatur molestias.
+              </p>
+            </div>
+
+            <div class="box">
+              <h2
+                class="relative m-5 text-[#ffffff] font-bold bg-black p-3 cursor-pointer"
+              >
+                Am I doing well enough with my savings? If not, how can I reduce
+                it?
+              </h2>
+              <p
+                class="m-5 text-xl text-white w-full overflow-hidden duration-500 ease-in-out"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                doloribus molestiae officia quibusdam repellendus iure rem eaque
+                rerum pariatur molestias.
+              </p>
+            </div>
+
+            <div class="box">
+              <h2
+                class="relative m-5 text-[#ffffff] font-bold bg-black p-3 cursor-pointer"
+              >
+                How will this web app help my business?
+              </h2>
+              <p
+                class="m-5 text-xl text-white w-full overflow-hidden duration-500 ease-in-out"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+                doloribus molestiae officia quibusdam repellendus iure rem eaque
+                rerum pariatur molestias.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const questionAnswer = document.getElementsByClassName("box");
+
+      for (let i = 0; i < questionAnswer.length; i++) {
+        questionAnswer[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
+      }
+    </script>
+  </body>
+</html>

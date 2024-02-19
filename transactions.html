@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transaction History</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/d21c3140b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    thead th {
+      background-color: #000;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    tbody td {
+      padding: 7px 10px;
+      border-top: 1px solid #ddd;
+    }
+    .deleteBtn {
+      color: red;
+      cursor: pointer;
+    }
+  </style>
+  <body
+    style="background-image: url('./images/widebuscg.jpg')"
+    class="relative w-full h-screen bg-no-repeat bg-center bg-cover"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-60">
+      <div>
+        <div id="goBack" class="cursor-pointer mb-8 text-5xl text-black">
+          <a href="dashboard.html">
+            <img src="./images/back.png" class="h-12" />
+          </a>
+        </div>
+        <div
+          class="container mx-auto my-0 rounded-lg"
+          style="max-width: 50rem; padding: 1.25rem"
+        >
+          <h1
+            class="text-center mb-5 font-roboto text-3xl font-bold text-white"
+          >
+            Transaction History
+          </h1>
+          <div
+            class="expenseTable border border-[#ddd] rounded-lg overflow-y-scroll h-[37rem] shadow-md"
+          >
+            <table class="transactionTable w-full border-collapse">
+              <thead>
+                <tr>
+                  <th>Decription</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody
+                id="transactionsList"
+                class="text-[white] font-semibold font-roboto"
+              ></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- THE TOTAL BUDGET AND EXPENSES STARTS HERE.... -->
+      <div class="sumTotal mt-11 ml-20 bg-black w-[24rem] text-center py-3">
+        <p class="text-2xl font-bold leading-10 test-class text-white pb-2">
+          Total Budget: <span id="budget" class="ml-7"></span>
+        </p>
+        <hr />
+        <p class="text-2xl font-bold leading-10 text-white pt-1">
+          Total Expenses: <span id="expenses" class="ml-2"></span>
+        </p>
+      </div>
+    </div>
+    <script src="transactions.js"></script>
+  </body>
+</html>

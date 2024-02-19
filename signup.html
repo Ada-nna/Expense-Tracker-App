@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d21c3140b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      style="background-image: url('./images/widebuscg.jpg')"
+      class="relative w-full h-screen bg-no-repeat bg-center bg-cover"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60">
+        <div class="h-5/6 w-3/12 bg-black bg-opacity-20 mx-auto my-20">
+          <div class="p-10">
+            <h1 class="text-5xl text-[#ffffff] font-bold text-center mb-10">
+              Sign Up
+            </h1>
+            <p class="font-medium text-cyan-100 text-center text-lg mb-5">
+              Create your account
+            </p>
+
+            <form>
+              <div class="relative mb-3">
+                <i class="fa-solid fa-user absolute top-4 left-3 text-base"></i>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="error1"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+              <div class="relative mb-3">
+                <i
+                  class="fa-solid fa-envelope absolute top-4 left-3 text-base"
+                ></i>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="error2"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+              <div class="relative mb-3">
+                <i class="fa-solid fa-lock absolute top-4 left-3 text-base"></i>
+                <img
+                  src="./images/hide.png"
+                  class="pass-icon h-6 absolute right-3 top-4 cursor-pointer"
+                />
+                <input
+                  type="password"
+                  id="pass"
+                  placeholder="Password"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="error3"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+              <div class="relative mb-3">
+                <i class="fa-solid fa-lock absolute top-4 left-3 text-base"></i>
+                <img
+                  src="./images/hide.png"
+                  class="confirmPass-icon h-6 absolute right-3 top-4 cursor-pointer"
+                />
+                <input
+                  type="password"
+                  id="cpass"
+                  placeholder="Confirm Password"
+                  class="bg-cyan-100 pl-9 pr-6 py-3 w-full outline-none rounded-xl text-lg"
+                />
+                <p
+                  id="error4"
+                  class="text-center mt-1 font-bold"
+                  style="color: red"
+                ></p>
+              </div>
+              <button
+                id="signBtn"
+                class="mt-6 w-full py-3 text-lg font-bold rounded-xl bg-[#61cfd2]"
+              >
+                <a href="#">Continue</a>
+              </button>
+              <p class="text-xl text-center text-[#ffffff] my-2">OR</p>
+              <div>
+                <button
+                  id="googleAdd"
+                  class="w-full text-lg font-bold rounded-xl bg-[#61cfd2]"
+                >
+                  <a
+                    href="#"
+                    class="flex items-center justify-center gap-3 py-3"
+                    ><img src="./images/goog.png" class="h-6 cursor-pointer" />
+                    Continue with Google</a
+                  >
+                </button>
+              </div>
+              <p class="text-lg text-center text-cyan-100 font-medium mt-3">
+                Already have an account?
+                <a
+                  href="./login.html"
+                  class="font-bold"
+                  style="color: white; text-shadow: 1px 1px 1px black"
+                  >Login</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./signup.js" type="module"></script>
+  </body>
+</html>
