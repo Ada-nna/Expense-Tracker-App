@@ -5,20 +5,23 @@ const totalAmountElement = document.getElementById("totalAmount");
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 let dateTime = JSON.parse(localStorage.getItem("dateTime")) || [];
 
+//console.log(transactions);
 function declareExpenses() {
   expenseList.innerHTML = "";
   let totalAmount = 0;
   for (let i = 0; i < transactions.length; i++) {
     const transaction = transactions[i];
-    const transactionRow = document.createElement("tr");
-    transactionRow.innerHTML = ` 
-      <td>${transaction.name}</td> 
-      <td>₦ ${transaction.amount}</td>
-      <td>${transaction.date}</td>
-      <td>${transaction.time}</td>
-      <td class="deleteBtn" data-id="₦{i}">Delete</td>`;
-    expenseList.appendChild(transactionRow);
-    totalAmount += transaction.amount;
+    if (transaction.type == "expense") {
+      const transactionRow = document.createElement("tr");
+      transactionRow.innerHTML = ` 
+        <td>${transaction.name}</td> 
+        <td>₦ ${transaction.amount}</td>
+        <td>${transaction.date}</td>
+        <td>${transaction.time}</td>
+        <td class="deleteBtn" data-id="₦{i}">Delete</td>`;
+      expenseList.appendChild(transactionRow);
+      totalAmount += transaction.amount;
+    }
   }
   totalAmountElement.innerHTML = totalAmount.toFixed(2);
   localStorage.setItem("transactions", JSON.stringify(transactions));
