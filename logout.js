@@ -22,7 +22,7 @@ const logoutBtn = document.querySelector("#logoutBtn");
 const userSignOutOfGoogle = async () => {
   signOut(auth)
     .then(() => {
-      alert("You've signed out successfully");
+      // alert("You've signed out successfully");
       window.location.href = "index.html";
     })
     .catch((error) => {

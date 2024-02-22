@@ -5,44 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Xpense Monitor</title>
     <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <div
       style="background-image: url('./images/money-calc.jpg')"
-      class="relative w-full h-screen bg-no-repeat bg-center bg-cover"
+      class="relative w-svw h-svh md:w-full lg:w-full md:h-screen lg:h-screen bg-no-repeat bg-center bg-cover"
     >
       <div class="absolute inset-0 bg-black bg-opacity-90">
         <div>
-          <img src="./images/logo.png" class="h-56 ml-20" />
+          <img src="./images/logo.png" class="h-32 md:h-52 lg:h-56 lg:ml-20" />
         </div>
 
-        <div class="ml-32">
+        <div class="ml-7 md:ml-10 lg:ml-32">
           <h1
-            class="text-8xl font-bold mt-32 mb-12"
+            class="text-4xl mt-32 md:text-[5rem] md:mt-40 lg:mt-32 lg:text-8xl font-bold md:mb-12 lg:mb-12 mb-5"
             style="color: #1dbabf; cursor: default"
           >
             Xpense Monitor
           </h1>
           <p
-            class="text-3xl text-white"
-            style="width: 43.75rem; cursor: default"
+            class="text-[0.75rem] md:text-3xl lg:text-[2rem] text-white w-[16rem] md:w-[43.75rem] lg:w-[43.75rem] cursor-default"
+            
           >
             Best help in managing your personal finances. Because your money
             matters!
           </p>
         </div>
 
-        <div class="mt-24 text-white ml-32 flex gap-56">
+        <div class="ml-5 mt-20 md:mt-24 lg:mt-24 text-white md:ml-10 lg:ml-32 flex gap-[4rem] md:gap-[7.5rem] lg:gap-56">
           <button
-            class="border-solid rounded-full border-white px-20 py-4 bg-[#FF7B00] hover:bg-orange-400"
+            class="border-solid rounded-full border-white px-[1.5rem] py-[0.2rem] md:px-[5rem] lg:px-[5rem] md:py-4 lg:py-4 bg-[#FF7B00] hover:bg-orange-400 duration-300"
           >
-            <a href="./signup.html" class="text-2xl">Sign Up</a>
+            <a href="./signup.html" class="text-sm md:text-2xl lg:text-2xl">Sign Up</a>
           </button>
           <button
-          class="border-solid rounded-full border-white px-24 py-4 bg-[#FF7B00] hover:bg-orange-400"
+          class="border-solid rounded-full border-white px-[1.8rem] py-[0.2rem] md:px-[5.5rem] lg:px-[5.5rem] md:py-4 lg:py-4 bg-[#FF7B00] hover:bg-orange-400"
           >
-            <a href="./login.html" class="text-2xl">Login</a>
+            <a href="./login.html" class="text-sm md:text-2xl lg:text-2xl">Login</a>
           </button>
         </div>
       </div>

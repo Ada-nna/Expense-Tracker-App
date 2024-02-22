@@ -113,7 +113,7 @@ signupBtn.addEventListener("click", (e) => {
         window.location.href = "dashboard.html"; // Redirect after successful sign up
       })
       .catch((error) => {
-        alert(error.message)
+        // alert(error.message)
         console.log(error.code);
         console.log(error.message);
       });
@@ -133,7 +133,7 @@ const userSignInWithGoogle = async () => {
       console.log(user);
     })
     .catch((error) => {
-      alert(error.message)
+      // alert(error.message)
       console.log(error.code);
       console.log(error.message);
     });
